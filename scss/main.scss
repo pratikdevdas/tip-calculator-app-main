@@ -1,0 +1,70 @@
+$primary-color: hsl(172, 67%, 45%);
+$primary-white: hsl(0, 0%, 100%);
+
+// mixins
+@mixin boxes {
+    border: 2px solid red;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+body, html, main {
+  background-color: $primary-color;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & > div {
+    display: flex;
+    border: 3px solid $primary-white;
+    min-width: 70%;
+    height: 500px;
+    border-radius: 30px;
+    background-color: $primary-white;
+  }
+}
+
+div{
+    input{
+        width: 90%;
+        line-height: 2.5rem;
+    }
+}
+
+.left--box{
+   @include boxes;
+    padding-left: 3rem;
+    // align-items: center;
+}
+
+.left--box__buttons{
+    display: grid;
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2,3rem);
+    gap: 15px;
+}
+
+.right--box{
+    @include boxes;
+    padding-left: 3rem;
+    & div {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+
+        & button{
+            height: 3rem;
+            width: 90%;
+        }
+    }
+}

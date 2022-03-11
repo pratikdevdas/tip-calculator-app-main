@@ -1,0 +1,96 @@
+body, html, main {
+  background-color: #26c0ab;
+  height: 100%;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+main > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 3px solid white;
+  min-width: 70%;
+  height: 500px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+div input {
+  width: 90%;
+  line-height: 2.5rem;
+}
+
+.left--box {
+  border: 2px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50%;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-left: 3rem;
+}
+
+.left--box__buttons {
+  display: -ms-grid;
+  display: grid;
+  width: 90%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: (3rem)[2];
+      grid-template-rows: repeat(2, 3rem);
+  gap: 15px;
+}
+
+.right--box {
+  border: 2px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50%;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-left: 3rem;
+}
+
+.right--box div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+}
+
+.right--box div button {
+  height: 3rem;
+  width: 90%;
+}
+/*# sourceMappingURL=main.css.map */
