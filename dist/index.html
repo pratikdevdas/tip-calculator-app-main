@@ -1,6 +1,4 @@
-<!-- folder structure -->
 
-<!-- https://www.youtube.com/watch?v=_a5j7KoflTs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
+<!-- folder structure -->
+<!-- https://www.youtube.com/watch?v=_a5j7KoflTs -->
 
     <link
       rel="icon"
@@ -35,28 +35,30 @@
         <div class="left--box">
           <div>
             <div>Bill</div>
-            <div><img src="../images/icon-dollar.svg" ><input type="text"></div>
+            <div><img src="../images/icon-dollar.svg" alt="dollar-sign" ><input type="text" class="billInput"></div>
           </div>
           <div>
             <div>Select Tip</div>
             <div class="left--box__buttons">
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>25%</button>
-              <button>50%</button>
-              <button>Custom</button>
+              <button class="btn-1">5%</button>
+              <button class="btn-2">10%</button>
+              <button class="btn-3">15%</button>
+              <button class="btn-4">25%</button>
+              <button class="btn-5">50%</button>
+              <button class="custom">Custom</button>
             </div>
           </div>
           <div>
             <div>Number of People</div>
+            <div><img src="../images/icon-person.svg" alt="person-icon"></div>
             <div><input type="text" /></div>
           </div>
         </div>
         <div class="right--box">
           <div>
             <div>Tip Amount <br> / person </div>
-            <div>value</div>
+            
+            <div><p class="result"> sj</p></div>
           </div>
           <div>
             <div>Total  <span> <br> / person</span></div>
@@ -75,5 +77,19 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <input placeholder="Enter some text" name="name" class="kk"/>
+<p id="values"></p>
+<script>
+  const input = document.querySelector('.kk');
+const log = document.getElementById('values');
+
+input.addEventListener('input', updateValue);
+
+function updateValue(e) {
+  log.textContent = e.target.value;
+}
+
+</script>
+    <script src="./main.js"></script>
   </body>
 </html>

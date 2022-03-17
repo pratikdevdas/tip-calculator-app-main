@@ -1,5 +1,11 @@
+@media (min-width: 1200px) {
+  body {
+    background-color: red;
+  }
+}
+
 body, html, main {
-  background-color: #26c0ab;
+  background-color: green;
   height: 100%;
 }
 

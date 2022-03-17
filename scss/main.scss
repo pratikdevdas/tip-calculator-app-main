@@ -1,7 +1,36 @@
 $primary-color: hsl(172, 67%, 45%);
 $primary-white: hsl(0, 0%, 100%);
+$breakpoints: (
+  'medium': (min-width: 800px),
+  'large': (min-width: 1000px),
+  'huge': (min-width: 1200px),
+);
 
 // mixins
+
+@mixin respond-to($breakpoint){
+    $value:map-get($breakpoints, $breakpoint);
+
+    @if $value {
+        $query: if(
+          type-of($value) == 'string'
+        );
+    
+        @media #{$query} {
+          @content;
+        }
+      } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+             + 'Please make sure it is defined in `$breakpoints` map.';
+      }
+    }
+
+@include respond-to(huge){
+    body{
+        background-color: red;
+    }
+}
+
 @mixin boxes {
     border: 2px solid red;
     box-sizing: border-box;
@@ -13,7 +42,7 @@ $primary-white: hsl(0, 0%, 100%);
 }
 
 body, html, main {
-  background-color: $primary-color;
+  background-color: green;
   height: 100%;
 }
 
