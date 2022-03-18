@@ -1,11 +1,5 @@
-@media (min-width: 1200px) {
-  body {
-    background-color: red;
-  }
-}
-
 body, html, main {
-  background-color: green;
+  background-color: #c5e4e7;
   height: 100%;
 }
 
@@ -22,6 +16,24 @@ main {
   height: 100%;
 }
 
+@media screen and (max-width: 500px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+}
+
 main > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,13 +45,37 @@ main > div {
   background-color: white;
 }
 
+@media screen and (max-width: 900px) {
+  main > div {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    height: 750px;
+  }
+}
+
 div input {
   width: 90%;
   line-height: 2.5rem;
 }
 
 .left--box {
-  border: 2px solid red;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50%;
@@ -53,22 +89,54 @@ div input {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding-left: 3rem;
+  padding-left: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .left--box {
+    padding: 0px;
+    width: 90%;
+    height: 60%;
+  }
+}
+
+.left--box__first, .left--box__third {
+  position: relative;
+}
+
+.left--box__first img, .left--box__third img {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.left--box__first div input, .left--box__third div input {
+  width: 100%;
+  background-color: #f4fafa;
+  border: none;
+  margin-top: 0.5rem;
 }
 
 .left--box__buttons {
   display: -ms-grid;
   display: grid;
-  width: 90%;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: (3rem)[2];
-      grid-template-rows: repeat(2, 3rem);
+  width: 100%;
+  -ms-grid-columns: (minmax(120px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-auto-rows: 50px;
+  margin-top: 0.5rem;
   gap: 15px;
 }
 
+.left--box__buttons button {
+  border: none;
+  font-size: large;
+  font-weight: 900;
+  background-color: #00494d;
+  border-radius: 5px;
+}
+
 .right--box {
-  border: 2px solid red;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50%;
@@ -82,21 +150,29 @@ div input {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding-left: 3rem;
+  margin: 2rem;
+  border-radius: 20px;
+  background-color: #00494d;
+  padding: 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .right--box {
+    width: 90%;
+    height: 40%;
+  }
 }
 
 .right--box div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 90%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .right--box div button {
   height: 3rem;
-  width: 90%;
+  width: 80%;
 }
 /*# sourceMappingURL=main.css.map */

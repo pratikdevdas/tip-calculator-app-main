@@ -1,22 +1,29 @@
+// variables
 $primary-color: hsl(172, 67%, 45%);
 $primary-white: hsl(0, 0%, 100%);
+$dark-cyan: hsl(183, 100%, 15%);
+$background: hsl(185, 41%, 84%);
+$input: hsl(189, 41%, 97%);
+
 $breakpoints: (
-  'medium': (min-width: 800px),
-  'large': (min-width: 1000px),
-  'huge': (min-width: 1200px),
+  'small': (max-width: 500px),
+  'medium': (max-width: 900px),
+  'large': (max-width: 1400px),
+  'huge': (max-width: 1800px),
 );
 
 // mixins
-
 @mixin respond-to($breakpoint){
     $value:map-get($breakpoints, $breakpoint);
 
     @if $value {
         $query: if(
-          type-of($value) == 'string'
+          type-of($value) == 'string',
+          unquote($value),
+          inspect($value)
         );
     
-        @media #{$query} {
+        @media screen and#{$query} {
           @content;
         }
       } @else {
@@ -25,14 +32,9 @@ $breakpoints: (
       }
     }
 
-@include respond-to(huge){
-    body{
-        background-color: red;
-    }
-}
 
 @mixin boxes {
-    border: 2px solid red;
+    // border: 2px solid red;
     box-sizing: border-box;
     width: 50%;
     padding: 2rem;
@@ -41,8 +43,9 @@ $breakpoints: (
     justify-content: space-around;
 }
 
+//css
 body, html, main {
-  background-color: green;
+  background-color: $background;
   height: 100%;
 }
 
@@ -52,6 +55,12 @@ main {
   align-items: center;
   height: 100%;
 
+  @include respond-to(small){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+  }
   & > div {
     display: flex;
     border: 3px solid $primary-white;
@@ -59,6 +68,19 @@ main {
     height: 500px;
     border-radius: 30px;
     background-color: $primary-white;
+
+    @include respond-to(medium){
+      height: 600px;
+    }
+
+    @include respond-to(small){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 750px;
+    }
   }
 }
 
@@ -71,29 +93,72 @@ div{
 
 .left--box{
    @include boxes;
-    padding-left: 3rem;
-    // align-items: center;
+    padding-left: 2rem;
+    @include respond-to(small){
+      padding: 0px;
+      width: 90%;
+      height: 60%;
+    }
 }
+
+.left--box__first, .left--box__third{
+  position: relative;
+  & img{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+  }
+  div{
+    input{
+      width: 100%;
+      background-color: hsl(189, 41%, 97%);
+      border: none;
+      margin-top:0.5rem;
+    }
+  }
+}
+
 
 .left--box__buttons{
     display: grid;
-    width: 90%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(2,3rem);
+    width: 100%;
+    // https://scrimba.com/learn/cssgrid/auto-fit-and-minmax-css-grid-tutorial-cg92LA6
+    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+    // automatically sets rows, https://scrimba.com/learn/cssgrid/implicit-rows-css-grid-tutorial-czvLgUD
+    grid-auto-rows: 50px;
+    margin-top:0.5rem;
     gap: 15px;
+
+    & button{
+      border: none;
+    font-size: large;
+    font-weight: 900;
+      background-color: $dark-cyan;
+      border-radius: 5px;
+    }
 }
 
 .right--box{
     @include boxes;
-    padding-left: 3rem;
+    margin: 2rem;
+    border-radius: 20px; 
+    background-color: $dark-cyan;
+    padding: 0px;
+
+    @include respond-to(small){
+     
+      width: 90%;
+      height: 40%;
+
+      // height: 500px;
+    }
     & div {
         display: flex;
-        justify-content: center;
-        width: 90%;
+        justify-content: space-around;
 
         & button{
             height: 3rem;
-            width: 90%;
+            width: 80%;
         }
     }
 }
