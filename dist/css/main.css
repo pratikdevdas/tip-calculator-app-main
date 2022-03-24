@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 body,
-html,
-main {
+html {
   font-family: "Space Mono", monospace;
   background-color: #c5e4e7;
   height: 100%;
@@ -11,17 +10,45 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 100%;
+}
+
+.first__section {
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
+}
+
+.second__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80%;
 }
 
 @media screen and (max-width: 500px) {
-  main {
+  .second__section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -38,7 +65,7 @@ main {
   }
 }
 
-main > div {
+.second__section > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,13 +77,13 @@ main > div {
 }
 
 @media screen and (max-width: 900px) {
-  main > div {
+  .second__section > div {
     height: 600px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  main > div {
+  .second__section > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -222,7 +249,8 @@ div input {
   background-color: #26c0ab;
 }
 
-#value1, #value2 {
+#value1,
+#value2 {
   font-size: 2rem;
   color: #26c0ab;
 }
