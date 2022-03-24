@@ -1,50 +1,59 @@
+// global imports
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
 // variables
 $primary-color: hsl(172, 67%, 45%);
 $primary-white: hsl(0, 0%, 100%);
 $dark-cyan: hsl(183, 100%, 15%);
 $background: hsl(185, 41%, 84%);
 $input: hsl(189, 41%, 97%);
-
+$font-family: "Space Mono", monospace;
 $breakpoints: (
-  'small': (max-width: 500px),
-  'medium': (max-width: 900px),
-  'large': (max-width: 1400px),
-  'huge': (max-width: 1800px),
+  "small": (
+    max-width: 500px,
+  ),
+  "medium": (
+    max-width: 900px,
+  ),
+  "large": (
+    max-width: 1400px,
+  ),
+  "huge": (
+    max-width: 1800px,
+  ),
 );
 
 // mixins
-@mixin respond-to($breakpoint){
-    $value:map-get($breakpoints, $breakpoint);
+@mixin respond-to($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
 
-    @if $value {
-        $query: if(
-          type-of($value) == 'string',
-          unquote($value),
-          inspect($value)
-        );
-    
-        @media screen and#{$query} {
-          @content;
-        }
-      } @else {
-        @error 'No value found for `#{$breakpoint}`. '
-             + 'Please make sure it is defined in `$breakpoints` map.';
-      }
+  @if $value {
+    $query: if(type-of($value) == "string", unquote($value), inspect($value));
+
+    @media screen and#{$query} {
+      @content;
     }
-
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+             + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
 
 @mixin boxes {
-    // border: 2px solid red;
-    box-sizing: border-box;
-    width: 50%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  // border: 2px solid red;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 //css
-body, html, main {
+body,
+html,
+main {
+  font-family: $font-family;
   background-color: $background;
   height: 100%;
 }
@@ -55,7 +64,7 @@ main {
   align-items: center;
   height: 100%;
 
-  @include respond-to(small){
+  @include respond-to(small) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,11 +78,11 @@ main {
     border-radius: 30px;
     background-color: $primary-white;
 
-    @include respond-to(medium){
+    @include respond-to(medium) {
       height: 600px;
     }
 
-    @include respond-to(small){
+    @include respond-to(small) {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -84,81 +93,116 @@ main {
   }
 }
 
-div{
-    input{
-        width: 90%;
-        line-height: 2.5rem;
-    }
+div {
+  input {
+    width: 90%;
+    line-height: 2.5rem;
+    font-family: $font-family;
+    text-align: end;
+    font-weight: 900;
+    padding-right: 10px;
+    font-size: 1.2rem;
+  }
 }
 
-.left--box{
-   @include boxes;
-    padding-left: 2rem;
-    @include respond-to(small){
-      padding: 0px;
-      width: 90%;
-      height: 60%;
-    }
+.left--box {
+  @include boxes;
+  padding-left: 2rem;
+  @include respond-to(small) {
+    padding: 0px;
+    width: 90%;
+    height: 60%;
+  }
 }
 
-.left--box__first, .left--box__third{
+.left--box__first,
+.left--box__third {
   position: relative;
-  & img{
+  & img {
     position: absolute;
     bottom: 15px;
     left: 15px;
   }
-  div{
-    input{
+  div {
+    input {
       width: 100%;
       background-color: hsl(189, 41%, 97%);
       border: none;
-      margin-top:0.5rem;
+      margin-top: 0.5rem;
     }
   }
 }
 
+.left--box__buttons {
+  display: grid;
+  width: 100%;
+  // https://scrimba.com/learn/cssgrid/auto-fit-and-minmax-css-grid-tutorial-cg92LA6
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  // automatically sets rows, https://scrimba.com/learn/cssgrid/implicit-rows-css-grid-tutorial-czvLgUD
+  grid-auto-rows: 50px;
+  margin-top: 0.5rem;
+  gap: 15px;
 
-.left--box__buttons{
-    display: grid;
-    width: 100%;
-    // https://scrimba.com/learn/cssgrid/auto-fit-and-minmax-css-grid-tutorial-cg92LA6
-    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
-    // automatically sets rows, https://scrimba.com/learn/cssgrid/implicit-rows-css-grid-tutorial-czvLgUD
-    grid-auto-rows: 50px;
-    margin-top:0.5rem;
-    gap: 15px;
-
-    & button{
-      border: none;
+  & button {
+    border: none;
     font-size: large;
     font-weight: 900;
-      background-color: $dark-cyan;
-      border-radius: 5px;
-    }
+    background-color: $dark-cyan;
+    border-radius: 5px;
+    font-family: $font-family;
+    cursor: pointer;
+    color: $primary-white;
+  }
+  & button:hover {
+    background-color: $primary-color;
+    transition: 0.3s ease-in-out;
+  }
+
+  & input {
+    font-family: $font-family;
+    background-color: $input;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+    font-weight: 900;
+    text-align: center;
+  }
 }
 
-.right--box{
-    @include boxes;
-    margin: 2rem;
-    border-radius: 20px; 
-    background-color: $dark-cyan;
-    padding: 0px;
+.right--box {
+  @include boxes;
+  margin: 2rem;
+  border-radius: 20px;
+  background-color: $dark-cyan;
+  padding: 0px;
 
-    @include respond-to(small){
-     
-      width: 90%;
-      height: 40%;
+  @include respond-to(small) {
+    width: 90%;
+    height: 40%;
+    // height: 500px;
+  }
+  & div {
+    display: flex;
+    justify-content: space-around;
+    color: $primary-white;
 
-      // height: 500px;
-    }
     & div {
-        display: flex;
-        justify-content: space-around;
-
-        & button{
-            height: 3rem;
-            width: 80%;
-        }
+      display: flex;
+      flex-direction: column;
     }
+
+    & button {
+      font-family: $font-family;
+      height: 3rem;
+      width: 80%;
+      border-radius: 5px;
+      border: none;
+      background-color: $primary-color;
+    }
+  }
+}
+
+#value1, #value2 {
+  font-size: 2rem;
+  color: $primary-color;
 }
