@@ -1,13 +1,11 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-<!-- folder structure -->
-<!-- https://www.youtube.com/watch?v=_a5j7KoflTs -->
+    <!-- folder structure -->
+    <!-- https://www.youtube.com/watch?v=_a5j7KoflTs -->
 
     <link
       rel="icon"
@@ -35,35 +33,51 @@
         <div class="left--box">
           <div class="left--box__first">
             <div>Bill</div>
-            <div><img src="../images/icon-dollar.svg" alt="dollar-sign" class="left--box__dollar" ><input type="text" class="billInput"></div>
+            <div>
+              <img
+                src="../images/icon-dollar.svg"
+                alt="dollar-sign"
+                class="left--box__dollar"
+              /><input type="text" placeholder="0" class="billInput" />
+            </div>
           </div>
           <div class="left--box__second">
-            <div >Select Tip</div>
+            <div>Select Tip</div>
             <div class="left--box__buttons">
               <button class="btn-1">5%</button>
               <button class="btn-2">10%</button>
               <button class="btn-3">15%</button>
               <button class="btn-4">25%</button>
               <button class="btn-5">50%</button>
-              <button class="custom">Custom</button>
+              <input
+                type=""
+                name="dfd"
+                placeholder="Custom"
+                class="btn-6"
+                id=""
+              />
             </div>
           </div>
           <div class="left--box__third">
-            <div >Number of People</div>
-            <div><img src="../images/icon-person.svg" alt="person-icon"></div>
-            <div><input type="text" /></div>
+            <div>Number of People</div>
+            <div><img src="../images/icon-person.svg" alt="person-icon" /></div>
+            <div><input type="text" placeholder="0" /></div>
           </div>
         </div>
         <div class="right--box">
           <div>
-            <div>Tip Amount <br> / person </div>
-            
-            <div><p class="result"> sj</p></div>
+            <div>
+              Total
+              <div>/ person</div>
+            </div>
+            <div id="value1">$0.00</div>
           </div>
           <div>
-            <div>Total  <span> <br> / person</span></div>
-            <div>value</div>
-
+            <div>
+              Total
+              <div>/ person</div>
+            </div>
+            <div id="value2">$0.00</div>
           </div>
 
           <div><button>Reset</button></div>
@@ -75,21 +89,20 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="https://www.pratikdevdas.com">Pratik</a>.
     </div>
-    <input placeholder="Enter some text" name="name" class="kk"/>
-<p id="values"></p>
-<script>
-  const input = document.querySelector('.kk');
-const log = document.getElementById('values');
+    <input placeholder="Enter some text" name="name" class="kk" />
+    <p id="values"></p>
+    <script>
+      const input = document.querySelector(".kk");
+      const log = document.getElementById("values");
 
-input.addEventListener('input', updateValue);
+      input.addEventListener("input", updateValue);
 
-function updateValue(e) {
-  log.textContent = e.target.value;
-}
-
-</script>
+      function updateValue(e) {
+        log.textContent = e.target.value;
+      }
+    </script>
     <script src="./main.js"></script>
   </body>
 </html>
