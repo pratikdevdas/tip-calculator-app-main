@@ -1,69 +1,70 @@
-let billInput = document.querySelector('.billInput')
-const personInput = document.querySelector('.peopleInput')
-const result = document.querySelector('#value1')
-const result2 = document.querySelector('#value2')
-const btn = document.getElementsByClassName('btn')
-const reset = document.querySelector('.reset')
-const custom = document.querySelector('.custom')
-let a,b=0,c,k,j,res;
+// declaration
+let billInput = document.querySelector(".billInput");
+const personInput = document.querySelector(".peopleInput");
+const result = document.querySelector("#value1");
+const result2 = document.querySelector("#value2");
+const btn = document.getElementsByClassName("btn");
+const reset = document.querySelector(".reset");
+const custom = document.querySelector(".custom");
+
+let billAmount,
+  btnPercentage = 0,
+  persons,
+  percentageValue;
+
+// event handler functions
+const billValue = (e) => {
+  billAmount = Number(e.target.value);
+  calculate();
+  return billAmount;
+};
 
 const buttonValue = (e) => {
-    b = Number(e.target.value)
-    calculate()
-    console.log(b)
-    return b
-}
-
-const billValue = (e) => {
-    a = Number(e.target.value)
-    calculate()
-    console.log(a)
-    return a
-}
+  btnPercentage = Number(e.target.value);
+  calculate();
+  return btnPercentage;
+};
 
 const personValue = (e) => {
-    c = Number(e.target.value)
-    calculate()
-    console.log(c)
-    return c
-}
+  persons = Number(e.target.value);
+  calculate();
+  return persons;
+};
 
 const resetter = () => {
-    a = 0
-    b = 0 
-    c = 0
-    calculate()
-    console.log('r')
-    return
+  billAmount = 0;
+  btnPercentage = 0;
+  persons = 0;
+  calculate();
+  return;
+};
+
+// event handlers
+btn[0].addEventListener("click", buttonValue);
+btn[1].addEventListener("click", buttonValue);
+btn[2].addEventListener("click", buttonValue);
+btn[3].addEventListener("click", buttonValue);
+btn[4].addEventListener("click", buttonValue);
+custom.addEventListener("input", buttonValue);
+
+billInput.addEventListener("input", billValue);
+personInput.addEventListener("input", personValue);
+
+reset.addEventListener("click", resetter);
+
+// core calculation
+function calculate() {
+  percentageValue = (billAmount * btnPercentage) / 100;
+  console.log(billAmount, btnPercentage, persons);
+  let tipAmount = percentageValue / persons;
+  let perPerson = (percentageValue + billAmount) / persons;
+  if (isNaN(tipAmount) || tipAmount === Infinity) {
+    result.textContent = "$0.00";
+    result2.textContent = "$0.00";
+    return;
+  } else {
+    result.textContent = `$${Math.round(tipAmount * 100) / 100}`;
+    result2.textContent = `$${Math.round(perPerson * 100) / 100}`;
+    return;
+  }
 }
-
-btn[0].addEventListener('click', buttonValue)
-btn[1].addEventListener('click', buttonValue)
-btn[2].addEventListener('click', buttonValue)
-btn[3].addEventListener('click', buttonValue)
-btn[4].addEventListener('click', buttonValue)
-custom.addEventListener('input', buttonValue)
-
-billInput.addEventListener('input', billValue);
-personInput.addEventListener('input', personValue);
-
-reset.addEventListener('click', resetter)
-console.log()
-
-function calculate (){
-    res = a*b/100
-    console.log(a,b,c)
-    k = (res + a)/c
-    j = res/c;
-    if (isNaN(k) || k === Infinity  ){
-        result.textContent = '$0.00';
-        result2.textContent = '$0.00';
-        return
-    }
-    else {
-        result.textContent = `$${Math.round(j * 100)/100}`; 
-        result2.textContent = `$${Math.round(k * 100)/100}`;
-        return
-    }
-} 
-
