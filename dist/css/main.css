@@ -34,6 +34,17 @@ main {
           align-items: center;
 }
 
+.first__section div {
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1800px) {
+  .first__section div {
+    padding-top: 20px;
+  }
+}
+
 .second__section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -156,6 +167,11 @@ div input {
   margin-top: 0.5rem;
 }
 
+.left--box__first div input[type="text"]:focus,
+.left--box__third div input[type="text"]:focus {
+  outline: 3px solid #26c0ab;
+}
+
 .left--box__buttons {
   display: -ms-grid;
   display: grid;
@@ -184,6 +200,10 @@ div input {
   transition: 0.3s ease-in-out;
 }
 
+.left--box__buttons button:active {
+  background-color: #f4fafa;
+}
+
 .left--box__buttons input {
   font-family: "Space Mono", monospace;
   background-color: #f4fafa;
@@ -192,6 +212,10 @@ div input {
   font-size: large;
   font-weight: 900;
   text-align: center;
+}
+
+.left--box__buttons input:focus {
+  outline: 3px solid #26c0ab;
 }
 
 .right--box {
@@ -247,6 +271,14 @@ div input {
   border-radius: 5px;
   border: none;
   background-color: #26c0ab;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #00494d;
+  font-size: 1.2rem;
+}
+
+.right--box div button:hover {
+  background-color: #c5e4e7;
 }
 
 #value1,

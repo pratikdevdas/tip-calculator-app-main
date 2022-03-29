@@ -3,9 +3,9 @@ let billInput = document.querySelector(".billInput");
 const personInput = document.querySelector(".peopleInput");
 const result = document.querySelector("#value1");
 const result2 = document.querySelector("#value2");
-const btn = document.getElementsByClassName("btn");
 const reset = document.querySelector(".reset");
 const custom = document.querySelector(".custom");
+const leftbtn = document.querySelector('.left--box__second')
 
 let billAmount,
   btnPercentage = 0,
@@ -39,12 +39,10 @@ const resetter = () => {
   return;
 };
 
+
 // event handlers
-btn[0].addEventListener("click", buttonValue);
-btn[1].addEventListener("click", buttonValue);
-btn[2].addEventListener("click", buttonValue);
-btn[3].addEventListener("click", buttonValue);
-btn[4].addEventListener("click", buttonValue);
+
+leftbtn.addEventListener('click', buttonValue)
 custom.addEventListener("input", buttonValue);
 
 billInput.addEventListener("input", billValue);

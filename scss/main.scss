@@ -7,7 +7,10 @@ $primary-white: hsl(0, 0%, 100%);
 $dark-cyan: hsl(183, 100%, 15%);
 $background: hsl(185, 41%, 84%);
 $input: hsl(189, 41%, 97%);
+$light-grayish-cyan:hsl(189, 41%, 97%);
+
 $font-family: "Space Mono", monospace;
+
 $breakpoints: (
   "small": (
     max-width: 500px,
@@ -68,7 +71,17 @@ main {
   text-align: center;
   justify-content: center;
   align-items: center;
+  & div{
+    letter-spacing: 5px;
+    font-weight: bold;
+    @include respond-to(huge){
+      padding-top: 20px;
+    }
+    @include respond-to(medium){
+    }
+  }
 }
+
 .second__section {
   display: flex;
   justify-content: center;
@@ -135,12 +148,16 @@ div {
     left: 15px;
   }
   div {
-    input {
+     input {
       width: 100%;
       background-color: hsl(189, 41%, 97%);
       border: none;
       margin-top: 0.5rem;
     }
+     input[type="text"]:focus{
+      outline: 3px solid $primary-color;
+    }
+
   }
 }
 
@@ -168,6 +185,9 @@ div {
     background-color: $primary-color;
     transition: 0.3s ease-in-out;
   }
+  & button:active {
+    background-color: $light-grayish-cyan;
+  }
 
   & input {
     font-family: $font-family;
@@ -177,6 +197,9 @@ div {
     font-size: large;
     font-weight: 900;
     text-align: center;
+  }
+  & input:focus{
+    outline: 3px solid $primary-color;
   }
 }
 
@@ -209,6 +232,13 @@ div {
       border-radius: 5px;
       border: none;
       background-color: $primary-color;
+      cursor: pointer;
+      text-transform: uppercase;
+      color:$dark-cyan;
+      font-size: 1.2rem;
+    }
+    & button:hover {
+      background-color: $background;
     }
   }
 }
@@ -218,3 +248,4 @@ div {
   font-size: 2rem;
   color: $primary-color;
 }
+ 
