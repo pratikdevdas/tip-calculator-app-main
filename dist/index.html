@@ -51,16 +51,16 @@
           <div class="left--box__second">
             <div>Select Tip</div>
             <div class="left--box__buttons">
-              <button class="btn-1">5%</button>
-              <button class="btn-2">10%</button>
-              <button class="btn-3">15%</button>
-              <button class="btn-4">25%</button>
-              <button class="btn-5">50%</button>
+              <button class="btn btn-1" value="5">5%</button>
+              <button class="btn btn-5" value="50">50%</button>
+              <button class="btn btn-2" value="10">10%</button>
+              <button class="btn btn-3" value="15">15%</button>
+              <button class="btn btn-4" value="25">25%</button>
               <input
                 type=""
                 name="dfd"
                 placeholder="Custom"
-                class="btn-6"
+                class="custom"
                 id=""
               />
             </div>
@@ -68,13 +68,13 @@
           <div class="left--box__third">
             <div>Number of People</div>
             <div><img src="../images/icon-person.svg" alt="person-icon" /></div>
-            <div><input type="text" placeholder="0" /></div>
+            <div><input type="text" placeholder="0" class="peopleInput" /></div>
           </div>
         </div>
         <div class="right--box">
           <div>
             <div>
-              Total
+              Tip Amount
               <div>/ person</div>
             </div>
             <div id="value1">$0.00</div>
@@ -84,10 +84,10 @@
               Total
               <div>/ person</div>
             </div>
-            <div id="value2">$0.00</div>
+            <div id="value2"> $0.00 </span></div>
           </div>
 
-          <div><button>Reset</button></div>
+          <div><button class="reset">Reset</button></div>
         </div>
       </div>
     </section>
@@ -101,14 +101,6 @@
       >. Coded by <a href="https://www.pratikdevdas.com">Pratik</a>.
     </div>
     <script>
-      const input = document.querySelector(".kk");
-      const log = document.getElementById("values");
-
-      input.addEventListener("input", updateValue);
-
-      function updateValue(e) {
-        log.textContent = e.target.value;
-      }
     </script>
     <script src="./main.js"></script>
   </body>
