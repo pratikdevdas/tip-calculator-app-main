@@ -1,9 +1,20 @@
-# Spliter - a tip calculator app
 
-![Design preview for the Tip calculator app coding challenge](./design/desktop-preview.jpg)
+# Tip calculator app solution
 
-A tip calculator app which also helps you split bills among friends. <br>
-This tip calculator app is made with VanillaJS. 
-Check it out at:
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). It's a simple calculator which helps to calculate tip and split bill amongst your friends.
 
-Project resource : [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+
+### Links
+
+
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+
+### Built with
+
+- Semantic HTML5 markup
+- SCSS
+- Javascript
+
+Let's connect on : [Twitter](https://twitter.com/pratikdevdas) , [LinkedIn](https://www.linkedin.com/in/pratikdevdas/)
+
