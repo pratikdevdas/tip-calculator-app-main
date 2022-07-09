@@ -7,7 +7,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 ### Links
 
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://pratikdevdas.github.io/tip-calculator-app-main/](https://pratikdevdas.github.io/tip-calculator-app-main/)
 
 
 ### Built with
